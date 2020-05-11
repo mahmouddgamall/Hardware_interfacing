@@ -1,0 +1,69 @@
+/**************************************************** 
+ 	 Author: Mahmoud Gamal
+************************************************/
+#ifndef SPI_CONFIG_H
+#define SPI_CONFIG_H
+
+/*
+Options:
+		 SPI_INTERRUPT_ENABLE
+		 SPI_INTERRUPT_DISABLE
+*/
+#define SPI_INTERRUPT	SPI_INTERRUPT_DISABLE
+
+/*
+Options:
+		 SPI_ENABLE
+		 SPI_DISABLE
+*/
+#define SPI_STATE		SPI_ENABLE
+
+/*
+Options:
+		 SPI_DATA_ORDER_LSB_FIRST
+		 SPI_DATA_ORDER_MSB_FIRST
+*/
+#define SPI_DATA_ORDER	SPI_DATA_ORDER_MSB_FIRST
+
+/*
+Options:
+		 SPI_MASTER_MODE
+		 SPI_SLAVE_MODE	
+*/
+#define SPI_MODE		SPI_MASTER_MODE
+
+/*
+Options:
+		 SPI_LEADING_EDGE_FALLING
+		 SPI_LEADING_EDGE_RISING	
+*/
+#define SPI_LEADING_EDGE	SPI_LEADING_EDGE_RISING
+
+/*
+Options:
+		SPI_SAMPLE_FIRST
+		SPI_SETUP_FIRST	
+*/
+#define SPI_FIRST_ACTION	SPI_SETUP_FIRST
+
+/*
+Options:
+		SPI_PRESCHALER_4		
+		SPI_PRESCHALER_16	
+		SPI_PRESCHALER_64	
+		SPI_PRESCHALER_128	
+
+
+*/
+#define SPI_PRESCHALER	SPI_PRESCHALER_16
+
+/*
+Options:
+		SPI_DOUBLE_SPEED_ENABLE	
+		SPI_DOUBLE_SPEED_DISABLE
+*/
+#define SPI_DOUBLE_SPEED	SPI_DOUBLE_SPEED_ENABLE
+
+#define	TIME_OUT			10000
+
+#endif

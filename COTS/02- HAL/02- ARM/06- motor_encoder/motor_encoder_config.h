@@ -1,0 +1,10 @@
+#ifndef MOTOR_ENCODER_CONFIG_H
+#define MOTOR_ENCODER_CONFIG_H
+
+#define	ENCODER_Pin	9
+
+#define	ENCODER_PORT	PORTB
+
+
+
+#endif
