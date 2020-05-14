@@ -6,7 +6,7 @@
 #include "lcd_private.h"
 #include "lcd_register.h"
 #include "lcd_interface.h"
-#include "Delay_interface.h"
+#include "util/delay.h"
 /*	Description: This API shall intialize the LCD for STM32	*/
 void CLCD_voidInitialize(void)
 {
@@ -18,12 +18,12 @@ void CLCD_voidInitialize(void)
 	/*Send 0b0010 twice and then the N=1F=0*/
 	/*	set RS =0	*/
 
-	setPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN,0);
+	DIO_voidSetPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN,0);
 
 	/*	set RW = 0	*/
 
 
-	setPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN,0);
+	DIO_voidSetPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN,0);
 
 
 
@@ -73,12 +73,12 @@ void CLCD_voidWriteData(u8 Copy_u8Data)
 
 	/*	set RS =1	*/
 
-	setPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN,1);
+	DIO_voidSetPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN,1);
 
 	/*	set RW = 0	*/
 
 
-	setPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN,0);
+	DIO_voidSetPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN,0);
 
 
 	/*	set data on data port	*/
@@ -121,12 +121,12 @@ void CLCD_voidWriteCmd(u8 Copy_u8Cmd)
 
 	/*	set RS =0	*/
 
-	setPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN,0);
+	DIO_voidSetPinValue(CLCD_u8_RS_PORT,CLCD_u8_RS_PIN,0);
 
 	/*	set RW = 0	*/
 
 
-	setPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN,0);
+	DIO_voidSetPinValue(CLCD_u8_RW_PORT,CLCD_u8_RW_PIN,0);
 
 
 	/*	set data on data port	*/
@@ -168,28 +168,28 @@ file can call it, therefore it is static*/
 
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,0);
-	setPinValue(CLCD_u8_D0_PORT,CLCD_u8_D0_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D0_PORT,CLCD_u8_D0_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,1);
-	setPinValue(CLCD_u8_D1_PORT,CLCD_u8_D1_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D1_PORT,CLCD_u8_D1_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,2);
-	setPinValue(CLCD_u8_D2_PORT,CLCD_u8_D2_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D2_PORT,CLCD_u8_D2_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,3);
-	setPinValue(CLCD_u8_D3_PORT,CLCD_u8_D3_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D3_PORT,CLCD_u8_D3_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,4);
-	setPinValue(CLCD_u8_D4_PORT,CLCD_u8_D4_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D4_PORT,CLCD_u8_D4_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,5);
-	setPinValue(CLCD_u8_D5_PORT,CLCD_u8_D5_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D5_PORT,CLCD_u8_D5_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,6);
-	setPinValue(CLCD_u8_D6_PORT,CLCD_u8_D6_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D6_PORT,CLCD_u8_D6_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,7);
-	setPinValue(CLCD_u8_D7_PORT,CLCD_u8_D7_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D7_PORT,CLCD_u8_D7_PIN,Local_u8BitVal);
 }
 #elif	CLCD_u8_DATA_LENGTH == FOUR_BITS_MODE
 
@@ -200,16 +200,16 @@ static void CLCD_voidSetHalfDataPort(u8 Copy_u8Data)
 	u8 Local_u8BitVal;
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,0);
-	setPinValue(CLCD_u8_D4_PORT,CLCD_u8_D4_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D4_PORT,CLCD_u8_D4_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,1);
-	setPinValue(CLCD_u8_D5_PORT,CLCD_u8_D5_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D5_PORT,CLCD_u8_D5_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,2);
-	setPinValue(CLCD_u8_D6_PORT,CLCD_u8_D6_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D6_PORT,CLCD_u8_D6_PIN,Local_u8BitVal);
 
 	Local_u8BitVal = GET_BIT(Copy_u8Data,3);
-	setPinValue(CLCD_u8_D7_PORT,CLCD_u8_D7_PIN,Local_u8BitVal);
+	DIO_voidSetPinValue(CLCD_u8_D7_PORT,CLCD_u8_D7_PIN,Local_u8BitVal);
 }
 #endif
 
@@ -267,8 +267,32 @@ void CLCD_voidSendEnablePulse(void)
 
 	/*	Enable Pulse	*/
 
-	setPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,1);
+	DIO_voidSetPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,1);
 	_delay_ms(5);
-	setPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,0);
+	DIO_voidSetPinValue(CLCD_u8_E_PORT,CLCD_u8_E_PIN,0);
 	_delay_ms(5);
+}
+void CLCD_voidWriteNumber(u32 num)
+{
+	u8 digit=0;
+	u32 newNum=0;
+	u8 numOfDigits=0;
+	u8 numOfPrintedNum=0;
+	while(num > 0)
+	{
+		newNum += num %10;
+		newNum *=10;
+		num/=10;
+		numOfDigits++;
+	}
+	newNum/=10;
+
+	do
+	{
+		digit = newNum %10;
+		newNum = newNum/10;
+		CLCD_voidWriteData(digit+'0');
+		numOfPrintedNum++;
+	}while(numOfDigits>numOfPrintedNum);
+
 }

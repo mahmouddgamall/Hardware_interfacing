@@ -36,6 +36,6 @@ void CLCD_voidGoto(u8 row, u8 col);
 void CLCD_voidPrintMyName(void);
 
 
-
+void CLCD_voidWriteNumber(u32 num);
 
 #endif

@@ -20,39 +20,7 @@ void portInit(void)
 		
 }
 
-void DIO_voidSetPinValue(u8 Copy_u8Pin, u8 Copy_u8Val)
-{
-	u8 Local_u8ReqPort = Copy_u8Pin/8;
-	u8 Local_u8ReqPin = Copy_u8Pin%8;
-	
-	switch (Local_u8ReqPort)
-	{
-		case 0: ASSIGN_BIT(PORTA, Local_u8ReqPin, Copy_u8Val);break;
-		case 1: ASSIGN_BIT(PORTB, Local_u8ReqPin, Copy_u8Val);break;
-		case 2: ASSIGN_BIT(PORTC, Local_u8ReqPin, Copy_u8Val);break;
-		case 3: ASSIGN_BIT(PORTD, Local_u8ReqPin, Copy_u8Val);break;
-	}
-	
-}
-
-
-u8 DIO_voidGetPinValue(u8 Copy_u8Pin, u8 Copy_u8Val)
-{
-	u8 Local_u8ReqPort = Copy_u8Pin/8;
-	u8 Local_u8ReqPin = Copy_u8Pin%8;
-	u8 Local_u8Value = 2;
-	switch (Local_u8ReqPort)
-	{
-		case 0: Local_u8Value = GET_BIT(PINA, Local_u8ReqPin);break;
-		case 1: Local_u8Value = GET_BIT(PINB, Local_u8ReqPin);break
-		case 2: Local_u8Value = GET_BIT(PINC, Local_u8ReqPin);break
-		case 3: Local_u8Value = GET_BIT(PIND, Local_u8ReqPin);break
-	}
-	
-}
-
-
-void setPinValue(u8 port, u8 pin, u8 value)
+void DIO_voidSetPinValue(u8 port, u8 pin, u8 value)
 {
 	switch(port)
 	{
@@ -104,7 +72,7 @@ void setPinValue(u8 port, u8 pin, u8 value)
 
 
 
-u8 getPinValue(u8 port, u8 pin)
+u8 DIO_voidGetPinValue(u8 port, u8 pin)
 {
 	u8 result;
 	switch (port)
@@ -117,7 +85,7 @@ u8 getPinValue(u8 port, u8 pin)
 	return result;
 }
 
-void setPort(u8 port)
+void DIO_voidSetPort(u8 port)
 {
 	switch(port)
 	{
@@ -128,7 +96,7 @@ void setPort(u8 port)
 	}
 }
 
-void clearPort(u8 port)
+void DIO_voidClearPort(u8 port)
 {
 	switch(port)
 	{

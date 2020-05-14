@@ -12,11 +12,11 @@
 /*FOUR_BITS_MODE
 	EIGHT_BITS_MODE*/
 
-#define CLCD_u8_DATA_LENGTH		FOUR_BITS_MODE
+#define CLCD_u8_DATA_LENGTH		EIGHT_BITS_MODE
 
-#define	CLCD_u8_RS_PORT 'C'
-#define	CLCD_u8_RW_PORT 'C'
-#define	CLCD_u8_E_PORT  'C'
+#define	CLCD_u8_RS_PORT 'B'
+#define	CLCD_u8_RW_PORT 'B'
+#define	CLCD_u8_E_PORT  'B'
 #define	CLCD_u8_D0_PORT 'A'
 #define	CLCD_u8_D1_PORT 'A'
 #define	CLCD_u8_D2_PORT 'A'

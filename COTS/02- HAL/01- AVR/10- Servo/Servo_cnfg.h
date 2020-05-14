@@ -1,11 +1,11 @@
 /**********************************************************************************************
-Author :Mohamed Ibrahem, Mahmoud Gamal
+Author :Mohamed Ibrahem
 Version:1.0
-Date:6 May 2020
-Description:This Header file is used to interface with the Timer1 module in AVR ATMega32 evaluation kit
+Date:7 May 2020
+Description:This Header file is used to interface with the Servo module in AVR ATMega32 evaluation kit
 ***********************************************************************************************/
-#ifndef Timer1_PRIVATE_H
-#define Timer1_PRIVATE_H
+#ifndef Servo_CNFG_H
+#define Servo_CNFG_H
 
 
 
