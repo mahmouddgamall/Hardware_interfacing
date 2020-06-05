@@ -1,32 +1,79 @@
 import os
-import shutil
+import datetime
 
-def main():
-  folder=input("Please enter the driver name")
-  os.mkdir(folder)
-  os.chdir(folder)
-  config = folder+'_config.h'
-  private = folder+'_private.h'
-  register = folder+'_register.h'
-  interface = folder+'_interface.h'
-  program = folder+'_program.c'
+
+def fun():
+
+  f=input("plz enter the folder name plz:")
+  print("01-AVR \n02-STM32f10x ")
+  chose =input("plz enter  1 or 2 :")
+  print (chose)
+  if chose == '1':
+    target='AVR ATMega32 '
+  else:
+    target ='STM32f10x '
+
+  d=datetime.datetime.now()
+  day=str(d.day)
+  month=d.strftime("%B")
+  year=str(d.year)
+  os.mkdir(f)
+  os.chdir(f)
+  filetype='This Header file '
+  signature ='/**********************************************************************************************\n\
+Author :Mohamed Ibrahem, Mahmoud Gamal \nVersion:1.0\nDate:'+day+' '+month+' '+year+\
+  '\nDescription:'+filetype+'is used to interface with the '+f+ ' module in '+target +'evaluation kit'+'\n\
+***********************************************************************************************/\n'
+  f1=open(f+'_private.h','w')
+  s='_private_h'
+  s=s.upper()
+  f1.write(signature)
+  #f1.write('/************************************************************\nAuthor :Mohamed Ibrahem\nVersion:v01\nDate:'+day+' '+month+' '+year+'\n*************************************************************/\n')
+  f1.write('#ifndef '+f+s+'\n')
+  f1.write('#define '+f+s+'\n\n\n\n\n')
+  f1.write("#endif")
+
+  f2=open(f+'_interface.h','w')
+  s='_interface_h'
+  s=s.upper()
+  f2.write(signature)
+  #f2.write('/************************************************************\nAuthor :Mohamed Ibrahem\nVersion:v01\nDate:'+day+' '+month+' '+year+'\n*************************************************************/\n')
+  f2.write('#ifndef '+f+s+'\n')
+  f2.write('#define '+f+s+'\n\n\n\n\n')
+  f2.write("#endif")
+
+  f3=open(f+'_cnfg.h','w')
+  s='_cnfg_h'
+  s=s.upper()
+  f3.write(signature)
+  #f3.write('/************************************************************\nAuthor :Mohamed Ibrahem\nVersion:v01\nDate:'+day+' '+month+' '+year+'\n*************************************************************/\n')
+  f3.write('#ifndef '+f+s+'\n')
+  f3.write('#define '+f+s+'\n\n\n\n\n')
+  f3.write("#endif")
+
+  f5=open(f+'_register.h','w')
+  s='_register_h'
+  s=s.upper()
+  f5.write(signature)
+  #f5.write('/************************************************************\nAuthor :Mohamed Ibrahem\nVersion:v01\nDate:'+day+' '+month+' '+year+'\n*************************************************************/\n')
+  f5.write('#ifndef '+f+s+'\n')
+  f5.write('#define '+f+s+'\n\n\n\n\n')
+  f5.write("#endif")
+
+
+  filetype='This Source file '
+  signature ='/**********************************************************************************************\n\
+Author :Mohamed Ibrahem, Mahmoud Gamal \nVersion:1.0\nDate:'+day+' '+month+' '+year+\
+  '\nDescription:'+filetype+'is used to interface with the '+f+ ' module in '+target +' evaluation kit'+'\n\
+***********************************************************************************************/\n'
+  f4=open(f+'_program.c','w')  
+  f4.write(signature)
+  f4.write('#include \"BIT_MATH.h\"\n')
+  f4.write('#include \"STD_TYPES.h\"\n')
+  f4.write('#include '"\""+f+'_register.h'+"\""+'\n')
+  f4.write('#include '"\""+f+'_interface.h'+"\""+'\n')
+  f4.write('#include '"\""+f+'_private.h'+"\""+'\n')
+  f4.write('#include '"\""+f+'_cnfg.h'+"\""+'\n')
   
-  configFile=open(config,'w+')  
-  privateFile=open(private,'w+')
-  registerFile=open(register,'w+')
-  interfaceFile=open(interface,'w+')
-  programFile=open(program,'w+')
-  
-  c='/**************************************************** \n \t Author: Mahmoud Gamal\n************************************************/\n#ifndef '+config[:-2].upper()+ '_H\n#define '+config[:-2].upper()+'_H\n\n#endif'
-  configFile.write(c)                                                                 
-  p='/**************************************************** \n \t Author: Mahmoud Gamal\n************************************************/\n#ifndef '+private[:-2].upper()+ '_H\n#define '+private[:-2].upper()+'_H\n\n#endif'
-  privateFile.write(p)                                                                
-  r='/**************************************************** \n \t Author: Mahmoud Gamal\n************************************************/\n#ifndef '+register[:-2].upper()+ '_H\n#define '+register[:-2].upper()+'_H\n\n#endif'
-  registerFile.write(r)
-  i='/**************************************************** \n \t Author: Mahmoud Gamal\n************************************************/\n#ifndef '+interface[:-2].upper()+ '_H\n#define '+interface[:-2].upper()+'_H\n\n#endif'
-  interfaceFile.write(i)
-  p='/**************************************************** \n \t Author: Mahmoud Gamal\n************************************************/\n#include "std_types.h"\n#include "bit_math.h"\n'+'#include "'+config+'"\n'+'#include "'+private+'"\n'+'#include "'+register+'"\n'+'#include "'+interface+'"\n'
-  programFile.write(p)
-  
-  
-main()
+
+fun()
