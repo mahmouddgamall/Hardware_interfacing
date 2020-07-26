@@ -65,7 +65,7 @@ extern void LEDMATRIX_voidWriteChar (u8 * Copy_u8Data, u8 Copy_u8Color)
 		}
 		else
 		{
-			//standard erro should be added ya 7aywan
+			//do nothing as this is an invalid value OR return an error
 		}
 
 		_delay_us(1000);

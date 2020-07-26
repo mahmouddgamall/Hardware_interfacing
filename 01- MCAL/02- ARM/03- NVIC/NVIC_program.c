@@ -5,10 +5,11 @@
 #include "NVIC_register.h"
 #include "NVIC_interface.h"
 
+#define SCB_AIRCR						*((volatile u32*)0xE000ED0C)
+
 extern void NVIC_voidInitPriority(void)
 {
 
-#define SCB_AIRCR						*((volatile u32*)0xE000ED0C)
 	SCB_AIRCR = 0x05FA0500;
 }
 
